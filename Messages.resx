@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="msgClockMoonNoonDirection" xml:space="preserve">
+    <value>When the clock's {0}. min. points to moon, hour 12 points to north|These are clock wheel's hours and minutes</value>
+  </data>
+  <data name="msgClockObjectNoonDirection" xml:space="preserve">
+    <value>When the clock's {0}. min. points to object, hour 12 points to north|These are clock wheel's hours and minutes</value>
+  </data>
+  <data name="msgClockSunNoonDirection" xml:space="preserve">
+    <value>When the clock's {0}. min. points to sun, hour 12 points to north|These are clock wheel's hours and minutes</value>
+  </data>
+  <data name="msgCompass" xml:space="preserve">
+    <value>Compass   [{0}]|The window title with a clock on it</value>
+  </data>
+  <data name="msgConstellationLongName" xml:space="preserve">
+    <value>Long name|A name of the constellation</value>
+  </data>
+  <data name="msgConstellationShortName" xml:space="preserve">
+    <value>Short name|An abbreviation of the constellation name</value>
+  </data>
+  <data name="msgDateAndTime" xml:space="preserve">
+    <value>Date and time: {0}|A formatted date and time</value>
+  </data>
+  <data name="msgDay" xml:space="preserve">
+    <value>Day|As in day of time</value>
+  </data>
+  <data name="msgDirectionLineColorMoon" xml:space="preserve">
+    <value>Moon's direction line color|The color of moon's direction line in the compass.</value>
+  </data>
+  <data name="msgDirectionLineColorObject" xml:space="preserve">
+    <value>Custom objects's direction line color|The color of the custom object's direction line in the compass.</value>
+  </data>
+  <data name="msgDirectionLineColorSun" xml:space="preserve">
+    <value>Sun's direction line color|The color of sun's direction line in the compass.</value>
+  </data>
+  <data name="msgDistanceFromTheSunXYZkm" xml:space="preserve">
+    <value>Width(x), height(y) and distance to sun (z) (km): {0:F1}|A distance to the sun, area width and height</value>
+  </data>
+  <data name="msgEarthAndMoon1x" xml:space="preserve">
+    <value>Earth and moon|Zoomed to the earth and moon</value>
+  </data>
+  <data name="msgEarthAndMoon2x" xml:space="preserve">
+    <value>Earth and moon x 2|Zoomed to the earth and moon by 2x</value>
+  </data>
+  <data name="msgEast" xml:space="preserve">
+    <value>EAST|As the east as in compass point</value>
+  </data>
+  <data name="msgEastLong" xml:space="preserve">
+    <value>east|east as long text</value>
+  </data>
+  <data name="msgEastShortUpper" xml:space="preserve">
+    <value>E|East upper case</value>
+  </data>
+  <data name="msgErrorDialogCaption" xml:space="preserve">
+    <value>Error|As in an error occurred.</value>
+  </data>
+  <data name="msgErrorDialogCaptionError" xml:space="preserve">
+    <value>Error|A standard caption for an error dialog</value>
+  </data>
+  <data name="msgErrorInvalidRaDecValues" xml:space="preserve">
+    <value>Invalid Ra/Dec values ("{0}").|The values of right ascension / declination are invalid</value>
+  </data>
+  <data name="msgFileMissing" xml:space="preserve">
+    <value>Missing file|A required file is missing</value>
+  </data>
+  <data name="msgFileNotFound" xml:space="preserve">
+    <value>File " {0} " can not be found.{1}Because the file is missing the program might not operate well.|A file is missing and may affect the programs behaviour"</value>
+  </data>
+  <data name="msgFromEast" xml:space="preserve">
+    <value>from east|As in from the east</value>
+  </data>
+  <data name="msgFromMap" xml:space="preserve">
+    <value>From map|As a world map which was used to pick a location (lat/lon)</value>
+  </data>
+  <data name="msgFromNorth" xml:space="preserve">
+    <value>from north|As in from the north</value>
+  </data>
+  <data name="msgFromNorthEast" xml:space="preserve">
+    <value>from northeast|As in from the northeast</value>
+  </data>
+  <data name="msgFromNorthToClockwise" xml:space="preserve">
+    <value>{0:F1} ° from north to clockwise|Degrees from north to clockwise</value>
+  </data>
+  <data name="msgFromNorthWest" xml:space="preserve">
+    <value>from northwest|As in from the northwest</value>
+  </data>
+  <data name="msgFromSouth" xml:space="preserve">
+    <value>from south|As in from the south</value>
+  </data>
+  <data name="msgFromSouthEast" xml:space="preserve">
+    <value>from southeast|As in from the southeast</value>
+  </data>
+  <data name="msgFromSouthWest" xml:space="preserve">
+    <value>from southwest|As in from the southwest</value>
+  </data>
+  <data name="msgFromWest" xml:space="preserve">
+    <value>from west|As in from the west</value>
+  </data>
+  <data name="msgGlieseItems" xml:space="preserve">
+    <value>Ident           : Identification number;RAh             : RA, hours / B1950;RAm             : RA, minutes / B1950;RAs             : RA, seconds / B1950;DE-             : Declination, sign;DEd             : Declination, degrees / B1950;DEm             : Declination, minutes / B1950;pm              : Total proper motion (arcsec/yr);pmPA            : Direction angle of proper motion;RV              : Radial velocity;Sp              : Spectral type or color class;Vmag            : Apparent magnitude;Mv              : Absolute visual magnitude;U               : space velocity component in the galactic plane and directed to the galactic center (km/sec);V               : space velocity component in the galactic plane and in the direction of galactic rotation (km/sec);W               : space velocity component in the galactic plane and in the direction of the North Galactic Pole (km/sec);HD              : Star ID / H. Draper -database;DM              : Durchmusterung number BD / CD / CP ?;Giclas          : Number;LHS             : Number;Other           : Other;Remarks         : Remarks;RA              : RA / B1950;Dec             : Declination   / B1950|Items for Gliese 3rd</value>
+  </data>
+  <data name="msgGreekAlphaLongNames" xml:space="preserve">
+    <value>Alpha;Beta;Gamma;Delta;Epsilon;Zeta;Eta;Theta;Iota;Kappa;Lamda;Mu;Nu;Xi;Omicron;Pi;Rho;Sigma;Tau;Upsilon;Phi;Chi;Psi;Omega|Greek alphabet long names</value>
+  </data>
+  <data name="msgGreekAlphaLower" xml:space="preserve">
+    <value>αβγδεζηθικλμνξοπρςτυφχψω|Greek alphabet lower case</value>
+  </data>
+  <data name="msgGreekAlphaShortNames" xml:space="preserve">
+    <value>Alp;Bet;Gam;Del;Eps;Zet;Eta;The;Iot;Kap;Lam;Mu;Nu;Xi;Omi;Pi;Rho;Sig;Tau;Ups;Phi;Chi;Psi;Ome|Greek alphabet short names</value>
+  </data>
+  <data name="msgGreekAlphaUpper" xml:space="preserve">
+    <value>ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ|Greek alphabet upper case</value>
+  </data>
+  <data name="msgHelpFileNotFound" xml:space="preserve">
+    <value>"Help file "{0}" can not be found.|The file containing help for the software was not found"</value>
+  </data>
+  <data name="msgHour" xml:space="preserve">
+    <value>Hour|As in hour of time</value>
+  </data>
+  <data name="msgHygItems" xml:space="preserve">
+    <value>StarID          : Star ID;HD              : Star ID / H. Draper database;HR              : Star ID / Harvard/Yale database;Gliese          : Star ID / Gliese database;BayerFlamsteed  : Bayer / Flamsteed designation;Ra              : Right ascension;Dec             : Declination;ProperName      : Common name;Distance        : Distance (pc);Mag             : Magnitude;AbsMag          : Absolute magnitude;Spectrum        : Spectrum;ColorIndex      : Color index|Items for the HYG v.1.1 ComboBox</value>
+  </data>
+  <data name="msgInnerSolSys" xml:space="preserve">
+    <value>Inner solar system|Zoom to the inner solar system</value>
+  </data>
+  <data name="msgLatLon" xml:space="preserve">
+    <value>Latitude: {0:F2} °, Longitude: {1:F2} °|Latitude and longitude in degrees</value>
+  </data>
+  <data name="msgLetterAbbreviation" xml:space="preserve">
+    <value>Abbreviation|An abbreviation of the letter/character name</value>
+  </data>
+  <data name="msgLetterName" xml:space="preserve">
+    <value>Name|A name of the letter/character</value>
+  </data>
+  <data name="msgLongConstNames" xml:space="preserve">
+    <value>Andromeda;Antlia;Apus;Aquila;Aquarius;Ara;Aries;Auriga;Boötes;Caelum;Camelopardalis;Capricornus;Carina;Cassiopeia;Centaurus;Cepheus;Cetus;Chamaeleon;Circinus;Canis Major;Canis Minor;Cancer;Columba;Coma Berenices;Corona Australis;Corona Borealis;Crater;Crux;Corvus;Canes Venatici;Cygnus;Delphinus;Dorado;Draco;Equuleus;Eridanus;Fornax;Gemini;Grus;Hercules;Horologium;Hydra;Hydrus;Indus;Lacerta;Leo;Lepus;Libra;Leo Minor;Lupus;Lynx;Lyra;Mensa;Microscopium;Monoceros;Musca;Norma;Octans;Ophiuchus;Orion;Pavo;Pegasus;Perseus;Phoenix;Pictor;Pisces Austrinus;Pisces;Puppis;Pyxis;Reticulum;Sculptor;Scorpius;Scutum;Serpens Cauda;Serpens Caput;Sextans;Sagitta;Sagittarius;Taurus;Telescopium;Triangulum Australe;Triangulum;Tucana;Ursa Major;Ursa Minor;Vela;Virgo;Volans;Vulpecula|Long constellation names</value>
+  </data>
+  <data name="msgLowerLetter" xml:space="preserve">
+    <value>Lower case letter|As in lower case letter/character</value>
+  </data>
+  <data name="msgMagnitudeLimit" xml:space="preserve">
+    <value>magl:{0:F1}|Magnitude limit in very short form</value>
+  </data>
+  <data name="msgMonth" xml:space="preserve">
+    <value>Month|As in month of time</value>
+  </data>
+  <data name="msgMoonNotVisible" xml:space="preserve">
+    <value>Moon is not visible|Moon is not visible</value>
+  </data>
+  <data name="msgNameEarth" xml:space="preserve">
+    <value>Earth|The name of the Earth</value>
+  </data>
+  <data name="msgNameJupiter" xml:space="preserve">
+    <value>Jupiter|The name of Jupiter</value>
+  </data>
+  <data name="msgNameMars" xml:space="preserve">
+    <value>Mars|The name of Mars</value>
+  </data>
+  <data name="msgNameMercury" xml:space="preserve">
+    <value>Mercury|The name of Mercury</value>
+  </data>
+  <data name="msgNameMoon" xml:space="preserve">
+    <value>Moon|The moon</value>
+  </data>
+  <data name="msgNameMoon2" xml:space="preserve">
+    <value>Moon|The name of the Moon</value>
+  </data>
+  <data name="msgNameNeptune" xml:space="preserve">
+    <value>Neptune|The name of Neptune</value>
+  </data>
+  <data name="msgNamePluto" xml:space="preserve">
+    <value>Pluto|The name of Pluto</value>
+  </data>
+  <data name="msgNameSaturn" xml:space="preserve">
+    <value>Saturn|The name of Saturn</value>
+  </data>
+  <data name="msgNameSun" xml:space="preserve">
+    <value>Sun|The sun</value>
+  </data>
+  <data name="msgNameSun2" xml:space="preserve">
+    <value>Sun|The name of the Sun</value>
+  </data>
+  <data name="msgNameUranus" xml:space="preserve">
+    <value>Uranus|The name of Uranus</value>
+  </data>
+  <data name="msgNameVenus" xml:space="preserve">
+    <value>Venus|The name of Venus</value>
+  </data>
+  <data name="msgNorth" xml:space="preserve">
+    <value>NORTH|As the north as in compass point</value>
+  </data>
+  <data name="msgNorthEastLong" xml:space="preserve">
+    <value>northeast|northeast as long text</value>
+  </data>
+  <data name="msgNorthEastShortUpper" xml:space="preserve">
+    <value>NE|North-East upper case</value>
+  </data>
+  <data name="msgNorthLong" xml:space="preserve">
+    <value>north|north as long text</value>
+  </data>
+  <data name="msgNorthShortUpper" xml:space="preserve">
+    <value>N|North upper case</value>
+  </data>
+  <data name="msgNorthWestLong" xml:space="preserve">
+    <value>northeast|northwest as long text</value>
+  </data>
+  <data name="msgNorthWestShortUpper" xml:space="preserve">
+    <value>NW|North-West upper case</value>
+  </data>
+  <data name="msgObjectDeclination" xml:space="preserve">
+    <value>Declination|As in declination</value>
+  </data>
+  <data name="msgObjectName" xml:space="preserve">
+    <value>Name|A string referring to a name word of the object.</value>
+  </data>
+  <data name="msgObjectNotVisible" xml:space="preserve">
+    <value>Object is not visible|The object is not visible</value>
+  </data>
+  <data name="msgObjectRA" xml:space="preserve">
+    <value>RA|Right ascension</value>
+  </data>
+  <data name="msgOtherObject" xml:space="preserve">
+    <value>Other object|As in the third object after the sun and the moon for the compass.</value>
+  </data>
+  <data name="msgOtherObjectsInfoCouldNotBeSavedError" xml:space="preserve">
+    <value>Information of the other object couldn't be saved.|The object info save failed.</value>
+  </data>
+  <data name="msgPrecisePointOfTheCompassMoon" xml:space="preserve">
+    <value>Moon's precise point of the compass (±1°)|precise point N, S, E, W, NS, ES, NW, NE</value>
+  </data>
+  <data name="msgPrecisePointOfTheCompassObject" xml:space="preserve">
+    <value>Precise point of the compass (±1°)|precise point N, S, E, W, NS, ES, NW, NE</value>
+  </data>
+  <data name="msgPrecisePointOfTheCompassSun" xml:space="preserve">
+    <value>Sun's precise point of the compass (±1°)|precise point N, S, E, W, NS, ES, NW, NE</value>
+  </data>
+  <data name="msgSelectLocation" xml:space="preserve">
+    <value>Select your location [{0}]|As in the caption of the window and the location with latitude and longitude</value>
+  </data>
+  <data name="msgShortConstNames" xml:space="preserve">
+    <value>And;Ant;Aps;Aql;Aqr;Ara;Ari;Aur;Boo;Cae;Cam;Cap;Car;Cas;Cen;Cep;Cet;Cha;Cir;CMa;CMi;Cnc;Col;Com;CrA;CrB;Crt;Cru;Crv;CVn;Cyg;Del;Dor;Dra;Equ;Eri;For;Gem;Gru;Her;Hor;Hya;Hyi;Ind;Lac;Leo;Lep;Lib;LMi;Lup;Lyn;Lyr;Men;Mic;Mon;Mus;Nor;Oct;Oph;Ori;Pav;Peg;Per;Phe;Pic;PsA;Psc;Pup;Pyx;Ret;Scl;Sco;Sct;SeC;Ser;Sex;Sge;Sgr;Tau;Tel;TrA;Tri;Tuc;UMa;UMi;Vel;Vir;Vol;Vul|Short constellation names</value>
+  </data>
+  <data name="msgSolarSystemCaption" xml:space="preserve">
+    <value>Solar system | Zoom: {0:F0} | X: {1:F1}°,Y: {2:F1}°,Z: {3:F1}° | Ratio: {4:F1}:{5:F1} |As in the caption of the solar system window</value>
+  </data>
+  <data name="msgSouth" xml:space="preserve">
+    <value>SOUTH|As the south as in compass point</value>
+  </data>
+  <data name="msgSouthEastLong" xml:space="preserve">
+    <value>northeast|southeast as long text</value>
+  </data>
+  <data name="msgSouthEastShortUpper" xml:space="preserve">
+    <value>SE|South-East upper case</value>
+  </data>
+  <data name="msgSouthLong" xml:space="preserve">
+    <value>south|south as long text</value>
+  </data>
+  <data name="msgSouthShortUpper" xml:space="preserve">
+    <value>S|South upper case</value>
+  </data>
+  <data name="msgSouthWestLong" xml:space="preserve">
+    <value>northeast|southwest as long text</value>
+  </data>
+  <data name="msgSouthWestShortUpper" xml:space="preserve">
+    <value>SW|South-West upper case</value>
+  </data>
+  <data name="msgStarTime" xml:space="preserve">
+    <value>Sidereal time: {0:F2} h.|As in sidereal time</value>
+  </data>
+  <data name="msgStopped" xml:space="preserve">
+    <value>Stopped|As in stopped</value>
+  </data>
+  <data name="msgSunNotVisible" xml:space="preserve">
+    <value>Sun is not visible|Sun is not visible</value>
+  </data>
+  <data name="msgTime" xml:space="preserve">
+    <value>Time|As in time</value>
+  </data>
+  <data name="msgToEast" xml:space="preserve">
+    <value>to east|As in to the east</value>
+  </data>
+  <data name="msgToNorth" xml:space="preserve">
+    <value>to north|As in to the north</value>
+  </data>
+  <data name="msgToNorthEast" xml:space="preserve">
+    <value>to northeast|As in to the northeast</value>
+  </data>
+  <data name="msgToNorthWest" xml:space="preserve">
+    <value>to northwest|As in to the northwest</value>
+  </data>
+  <data name="msgToSouth" xml:space="preserve">
+    <value>to south|As in to the south</value>
+  </data>
+  <data name="msgToSouthEast" xml:space="preserve">
+    <value>to southeast|As in to the southeast</value>
+  </data>
+  <data name="msgToSouthWest" xml:space="preserve">
+    <value>to southwest|As in to the southwest</value>
+  </data>
+  <data name="msgToWest" xml:space="preserve">
+    <value>to west|As in to the west</value>
+  </data>
+  <data name="msgUpperLetter" xml:space="preserve">
+    <value>Upper case letter|As in upper case letter/character</value>
+  </data>
+  <data name="msgUTC" xml:space="preserve">
+    <value>UTC|As Univeral Coordinated Time</value>
+  </data>
+  <data name="msgWest" xml:space="preserve">
+    <value>WEST|As the west as in compass point</value>
+  </data>
+  <data name="msgWestLong" xml:space="preserve">
+    <value>west|west as long text</value>
+  </data>
+  <data name="msgWestShortUpper" xml:space="preserve">
+    <value>W|West upper case</value>
+  </data>
+  <data name="msgWholeSolSys" xml:space="preserve">
+    <value>Whole solar system|Zoom so the whole solar system is visible</value>
+  </data>
+  <data name="msgYaleItems" xml:space="preserve">
+    <value>HR              : Harvard Revised Number = Bright Star Number;Name            : Name, generally Bayer and/or Flamsteed name;DM              : Durchmusterung Identification;HD              : Henry Draper Catalog Number;SAO             : SAO Catalog Number;FK5             : FK5-number;IRflag          : I if infrared source;RAh1900         : RA, hours / B1900;RAh1900         : RA, minutes / B1900;RAh1900         : RA, seconds / B1900;DE-1900         : Declination, sign / B1900;DEd1900         : Declination, degrees / B1900;DEm1900         : Declination, minutes / B1900;DEs1900         : Declination, seconds / B1900;RAh             : RA, hours;RAm             : RA, minutes;RAs             : RA, seconds;DE-             : Declination, sign;DEd             : Declination, degrees;DEm             : Declination, minutes;DEs             : Declination, seconds;GLON            : Galactic longitude;GLAT            : Galactic latitude;VMag            : Visual magnitude;SpType          : Spectral type;pmRA            : Annual proper motion in RA J2000, FK5;pmDE            : Annual proper motion in Dec J2000, FK5;RadVel          : Heliocentric Radial Velocity;n_RadVel        : Radial velocity comments;RotVel          : Rotational velocity;Ra              : Right ascension;Dec             : Declination|Items for Yale 5th</value>
+  </data>
+  <data name="msgYear" xml:space="preserve">
+    <value>Year|As in year of time</value>
+  </data>
+  <data name="msgYearsAmount" xml:space="preserve">
+    <value>years|amount of years</value>
+  </data>
+  <data name="msgZoomPercentage" xml:space="preserve">
+    <value>{0} %|As in zoom in n %</value>
+  </data>
+  <data name="msgDays" xml:space="preserve">
+    <value>Days|In a combo box selection list</value>
+  </data>
+  <data name="msgHours" xml:space="preserve">
+    <value>Hours|In a combo box selection list</value>
+  </data>
+  <data name="msgMinutes" xml:space="preserve">
+    <value>Minutes|In a combo box selection list</value>
+  </data>
+  <data name="msgMonths" xml:space="preserve">
+    <value>Months|In a combo box selection list</value>
+  </data>
+  <data name="msgSeconds" xml:space="preserve">
+    <value>Seconds|In a combo box selection list</value>
+  </data>
+  <data name="msgYears" xml:space="preserve">
+    <value>Years|In a combo box selection list</value>
+  </data>
+</root>

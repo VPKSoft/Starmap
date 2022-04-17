@@ -1,0 +1,16 @@
+Policy & Terms of Use
+
+February 22, 2011
+
+Unless otherwise noted, all the data contained in the downloads are from public domain sources only. OpenGeoCode.Org compiles the data and provides the compiled data and source code to the public domain.
+
+As public domain data and source code, you are:
+
+free to use the data and source code in any legal manner for non-commercial or commerical use,
+do not need to credit OpenGeoCode.Org or the sources of the data, and
+free to create deriative works.
+OpenGeoCode.Org does not warranty or otherwise guarantee the accuracy of the data and any accompanying information or source code.
+
+By downloading data or source code, you expressively agree to the terms of use.
+
+VPKSoft agrees to these terms.

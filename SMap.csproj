@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:Conversion="urn:Conversion" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{659415A4-AA05-403A-A259-306E81438C6B}</ProjectGuid>
+    <RootNamespace>SMap</RootNamespace>
+    <AssemblyName>SMap</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <ApplicationIcon>starmap.ico</ApplicationIcon>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn />
+    <StartupObject />
+    <NoStdLib>False</NoStdLib>
+    <NoConfig>False</NoConfig>
+    <RunPostBuildEvent>OnSuccessfulBuild</RunPostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>XCOPY "$(SolutionDir)Data" "$(TargetDir)Data\" /S /Y
+XCOPY "$(SolutionDir)WorldCities" "$(TargetDir)WorldCities\" /S /Y
+md "$(TargetDir)x86"
+md "$(TargetDir)x64"
+copy "$(SolutionDir)System.Data.SQLite\x86\SQLite.Interop.dll" "$(TargetDir)x86"
+copy "$(SolutionDir)System.Data.SQLite\x64\SQLite.Interop.dll" "$(TargetDir)x64"
+copy "C:\Users\Petteri Kautonen\AppData\Local\Starmap\Starmap.sqlite" "$(SolutionDir)"</PostBuildEvent>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>baefdff3</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <Optimize>False</Optimize>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants />
+    <OutputPath>bin\Debug\</OutputPath>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>False</DebugSymbols>
+    <Optimize>True</Optimize>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants />
+    <OutputPath>bin\Release\</OutputPath>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlagsISO">
+      <HintPath>FlagsISO\FlagsISO.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>System.Data.SQLite\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VPKSof.ConfLib, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ConfLib\VPKSof.ConfLib.dll</HintPath>
+    </Reference>
+    <Reference Include="VPKSoft.About">
+      <HintPath>vpksoft.about_release\VPKSoft.About.dll</HintPath>
+    </Reference>
+    <Reference Include="VPKSoft.LangLib, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>langlib_release\VPKSoft.LangLib.dll</HintPath>
+    </Reference>
+    <Reference Include="VPKSoft.PosLib">
+      <HintPath>poslib_release\VPKSoft.PosLib.dll</HintPath>
+    </Reference>
+    <Reference Include="VPKSoft.Utils">
+      <HintPath>vpksoft.utils_release\VPKSoft.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="FormHTMLView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHTMLView.Designer.cs">
+      <DependentUpon>FormHTMLView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectLocation.Designer.cs">
+      <DependentUpon>FormSelectLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JumpToTime.Designer.cs">
+      <DependentUpon>JumpToTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Mainform.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plotter.cs" />
+    <Compile Include="ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JumpToTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrowseDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanetInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SiderealTime.cs" />
+    <Compile Include="StarMap.MainForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StarMap.MainForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StellarConver.cs" />
+    <Compile Include="SolarSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConstellationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharacterExplanations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowRaDec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lists.cs" />
+    <EmbeddedResource Include="BrowseDatabase.resx">
+      <DependentUpon>BrowseDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConstellationView.resx">
+      <DependentUpon>ConstellationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHTMLView.resx">
+      <DependentUpon>FormHTMLView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectLocation.resx">
+      <DependentUpon>FormSelectLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanetInfo.resx">
+      <DependentUpon>PlanetInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowRaDec.resx">
+      <DependentUpon>ShowRaDec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolarSystem.resx">
+      <DependentUpon>SolarSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compass.resx">
+      <DependentUpon>Compass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JumpToTime.resx">
+      <DependentUpon>JumpToTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharacterExplanations.resx">
+      <DependentUpon>CharacterExplanations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StarMap.MainForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>StarMap.MainForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="COPYING">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseDatabase.Designer.cs">
+      <DependentUpon>BrowseDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanetInfo.Designer.cs">
+      <DependentUpon>PlanetInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SolarSystem.Designer.cs">
+      <DependentUpon>SolarSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compass.Designer.cs">
+      <DependentUpon>Compass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConstellationView.Designer.cs">
+      <DependentUpon>ConstellationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharacterExplanations.Designer.cs">
+      <DependentUpon>CharacterExplanations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowRaDec.Designer.cs">
+      <DependentUpon>ShowRaDec.cs</DependentUpon>
+    </Compile>
+    <None Include="Starmap.sqlite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_char.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sol_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sol_sys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comstellations.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stardb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solar-system-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solsysinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\solsys2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\starinfo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compass2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comstellations2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ra_dec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\earth.png" />
+    <None Include="Resources\time_this.png" />
+    <None Include="Resources\time_faster.png" />
+    <None Include="Resources\time_fastest.png" />
+    <None Include="Resources\play_stop.png" />
+    <None Include="Resources\time_back.png" />
+    <None Include="Resources\time_back_faster.png" />
+    <None Include="Resources\time_back_fastest.png" />
+    <None Include="Resources\time_jump.png" />
+    <None Include="Resources\OK.png" />
+    <None Include="Resources\Behrmann_projection_SW.jpg" />
+    <None Include="Resources\Gall_Stereographic_projection_SW.jpg" />
+    <None Include="Resources\Gall_Stereographic_projection_SW_centered.jpg" />
+    <None Include="Resources\zoom_minus.png" />
+    <None Include="Resources\zoom_plus.png" />
+    <None Include="Resources\Go back.png" />
+    <None Include="Resources\Go forward.png" />
+    <None Include="Resources\Calculator.png" />
+    <None Include="Resources\Play.png" />
+    <None Include="Resources\Pause.png" />
+    <None Include="Resources\Fast-forward.png" />
+    <None Include="Resources\all_old.png" />
+    <None Include="Resources\Fast-rewind.png" />
+    <Content Include="starmap.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>

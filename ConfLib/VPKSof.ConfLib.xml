@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VPKSof.ConfLib</name>
+    </assembly>
+    <members>
+        <member name="T:VPKSoft.ConfLib.Conflib">
+            <summary>
+            A simple library for saving application configuration settings.
+            </summary>
+        </member>
+        <member name="F:VPKSoft.ConfLib.Conflib.dataDir">
+            <summary>
+            The directory to save the configuration into.
+            </summary>
+        </member>
+        <member name="F:VPKSoft.ConfLib.Conflib.dbName">
+            <summary>
+            The file name to save the configuration into.
+            </summary>
+        </member>
+        <member name="F:VPKSoft.ConfLib.Conflib.autoCreate">
+            <summary>
+            If the configuration entries should be automatically saved to the database.
+            </summary>
+        </member>
+        <member name="F:VPKSoft.ConfLib.Conflib.conn">
+            <summary>
+            The SQlite database connection to use.
+            </summary>
+        </member>
+        <member name="F:VPKSoft.ConfLib.Conflib.configCache">
+            <summary>
+            An internal cache where the configuration entries are held.
+            <para/>This is for reading only. Writing is done immediately depending
+            <para/>on the caching of the file system and SQLite database.
+            </summary>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.GetAppSettingsFolder">
+            <summary>
+            Just returns the default writable data directory for "non-roaming" applications.
+            </summary>
+            <returns>A writable data directory for "non-roaming" applications.</returns>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.#ctor">
+            <summary>
+            The constructor.
+            <para/>A writable data directory variable is initialized.
+            </summary>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.ProtectData(System.String)">
+            <summary>
+            Encrypts a string starting with "SECURE:" to a hex string.
+            </summary>
+            <param name="data">A string to encypt.</param>
+            <returns>A string encrypeted as hex string if it started with "SECURE:"</returns>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.UnprotectData(System.String)">
+            <summary>
+            Decrypts a string starting with "0x" to a normal string.
+            </summary>
+            <param name="data">A data to decrypt.</param>
+            <returns>A string decrypeted from a hex string.</returns>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.StringToByteArray(System.String)">
+            <summary>
+            Convers a hex string to a a byte array.
+            </summary>
+            <param name="hex">A hex string to convert.</param>
+            <returns>A byte array which has been converted from a hex string.</returns>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.Open">
+            <summary>
+            Opens the database in case it hasn't been opened yet.
+            <para/>This connection is used by this library.
+            <para/>An explicit call is not required, because the library opens
+            <para/>the connection if it's not open yet.
+            </summary>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.LoadCache">
+            <summary>
+            Loads all the settings from the database from to the cache.
+            </summary>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.ValidTableName(System.String)">
+            <summary>
+            Validates if a given database table <paramref name="name"/> is valid.
+            <para/>Only alphanumeric characters and the underscore character [_] are valid.
+            </summary>
+            <param name="name">A database table name to check.</param>
+            <returns>True if the valdiation was successfull, otherwise false.</returns>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.CreateNames(System.String@,System.String@,System.String@)">
+            <summary>
+            Constructs a database table name and value name based on the given
+            <para/><paramref name="confValue"/>, which indicates the configuration
+            <para/>name in the code.
+            </summary>
+            <param name="confValue">A configuration value name to split into
+            <para/>database table and value name.</param>
+            <param name="table">A database table that split from the <paramref name="confValue"/>.
+            <para/>If there is no splitting slash [/] character in the name of the
+            <para/>config value a table name of [GENERAL] is used.</param>
+            <param name="valueName">The value name where the database table name is separated from.</param>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.CreateConfig(System.String@,System.Boolean,System.String)">
+            <summary>
+            Used internally by this indexers.
+            </summary>
+            <param name="confValue">Creates a configuration entry base on the given <paramref name="confValue"/> parameter.</param>
+            <param name="getter">Indicates if the method was called from get{} method from the this indexer.</param>
+            <param name="defaultValue">A default value to be used if the config entry does not exist.</param>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.AddValue(System.String,System.String)">
+            <summary>
+            Adds a config entry. 
+            <para/>This method adds the entry and does not take
+            <para/>into account the value of AutoCreateSettings.
+            </summary>
+            <param name="confValue">A config entry to add.</param>
+            <param name="defaultValue">A default value for the config entry.</param>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.DeleteValue(System.String)">
+            <summary>
+            Deletes a given config value from the database.
+            </summary>
+            <param name="confValue">A config value to delete.</param>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.DeleteValues(System.String)">
+            <summary>
+            Deletes a group of values in the config database based on
+            <para/><paramref name="confValueStart"/> parameter.
+            </summary>
+            <param name="confValueStart">A config group name to delete.</param>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.ValueExists(System.String)">
+            <summary>
+            Checks if a certaing configuration value exists.
+            </summary>
+            <param name="confValue">A config value to check.</param>
+            <returns>True if the config value exists, otherwise false.</returns>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.Close">
+            <summary>
+            Closes and disposes the underlying SQLite database connection if
+            <para/>one is open.
+            </summary>
+        </member>
+        <member name="M:VPKSoft.ConfLib.Conflib.Finalize">
+            <summary>
+            The class destructor.
+            <para/>Closes and disposes the underlying SQLite database connection if
+            <para/>one is open.
+            </summary>
+        </member>
+        <member name="P:VPKSoft.ConfLib.Conflib.DataDir">
+            <summary>
+            Gets or sets a writable directory where the settings should be saved.
+            <para/>The default is "[...]\AppData\Local\[Assembly product name]."
+            </summary>
+        </member>
+        <member name="P:VPKSoft.ConfLib.Conflib.DBName">
+            <summary>
+            Gets or sets the SQLite database file name residing in DataDir.
+            <para/>The default is config.sqlite.
+            </summary>
+        </member>
+        <member name="P:VPKSoft.ConfLib.Conflib.ConfigFile">
+            <summary>
+            Gets the combination of DataDir and DBName as a full file name and path.
+            </summary>
+        </member>
+        <member name="P:VPKSoft.ConfLib.Conflib.AutoCreateSettings">
+            <summary>
+            Indicates if the library should automatically create settings
+            <para/>in to the database whether their exist or not.
+            <para/>This appends to querying or creating a setting.
+            </summary>
+        </member>
+        <member name="P:VPKSoft.ConfLib.Conflib.Item(System.String,System.String)">
+            <summary>
+            Gets a config value. If AutoCreateSettings is true,
+            <para/>a config value is created with the given default value.
+            </summary>
+            <param name="confValue">A config value to get.</param>
+            <param name="defaultValue">A default value to use if the config value doesn't already exist.</param>
+            <returns>A config value.</returns>
+        </member>
+        <member name="P:VPKSoft.ConfLib.Conflib.Item(System.String)">
+            <summary>
+            Gets or sets a given config value. if AutoCreateSettings is true,
+            a non-existent config value is created.
+            </summary>
+            <param name="confValue">A name of the config value to get or set.</param>
+            <returns>A config value.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,278 @@
+-----------------------------------------------------------------
+Calculating mean and apparent sidereal time
+-----------------------------------------------------------------
+[ root ]
+
+- Overview
+- Finding days since J2000.0
+- Mean sidereal time
+- Longer time reach
+- Apparent sidereal time
+- GHA Aries for navigators
+
+
+Overview
+--------
+
+29th Jan 2002: Thanks to Hugh Gibson for finding errors and
+supplying corrections to the apparent sidereal time formulas
+here, especially the correction to the GMST to get GAST. The
+corrected spreadsheet has been checked against ICE and is within
+0.03 seconds of time up to 2050. 
+
+Thanks to Andres Valencia for his re-formatting of the spreadsheet 
+and increase in 'user friendliness'
+
+This page contains formulas to calculate the mean and apparent
+sidereal time. The mean sidereal time on the meridian of
+Greenwich agrees with the Interactive Computer Ephemeris (ICE) to
+an accuracy of 0.02 of a second of time within a period of 50
+years either side of the year 2000. The apparent sidereal time is
+good to about 0.1 seconds for 40 years either side of the year
+2000. The Nautical Almanac lists GHA Aries (the apparent sidereal
+time at Greenwich) to 0.1 of a minute of arc. This corresponds to
+0.4 seconds of time, so the algorithm here should suffice for
+navigational applications.
+
+Mealy Mouthed Disclaimer: Note that I do not certify this
+algorithm and no extensive testing has been carried out. The
+formulas used in this page are sensitive to rounding error. They
+work fine on a spreadsheet and in most programming languages that
+allow 'double precision' calculations (double in C, # in QBASIC).
+A 10 place programmable calculator may suffer.
+
+You might find some background helpful if you are not already
+familiar with the celestial sphere and astronomical coordinates.
+
+You can download an example MS Excel 97 spreadsheet along with an
+SLYK export of the spreadsheet as a 6Kb ZIP file.
+
+Finding the days since J2000.0
+------------------------------
+
+All the formulas connecting UT with sidereal time depend on the
+time elapsed from the fundamental epoch. Older references will
+use a date in 1900 as the epoch, Meeus and most recent formulas
+use J2000.0 as the epoch. The formula below will find the days
+since J2000.o for any date after 1900 and before 2099. That
+should do me nicely...
+
+The year is y, month m, date in the month is day, and the UT time
+is in hours, mins and seconds.
+
+dwhole =367*y-INT(7*(y+INT((m+9)/12))/4)+INT(275*m/9)+day-730531.5
+dfrac = (h + mins/60 + seconds/3600)/24
+
+d = dwhole + dfrac
+
+INT is an integer part function, so INT(19.6) = 19. dfrac is just
+the fraction of a day worked out from the UT hours, minutes and
+seconds. The formulas can be joined into one formula, its just
+too long a line for this file!
+
+d must be the UT days, so you will need to convert your date and
+time into UT date and time.
+
+Mean sidereal time
+------------------
+
+The mean sidereal time at zero longitude is often called
+Greenwich Mean sidereal Time or GMST. The formula below is based on
+Meeus formula 11.4 with terms in the square and the cube of the
+time left out. GST is in degrees!
+
+GMST = 280.46061837 + 360.98564736629 * d
+
+where
+d = UT days since J2000.0, including parts of a day
+
+You must subtract multiples of 360 to bring the answer into the
+range 0 to 360 degrees.
+
+To get the sidereal time at your longitude, known as Local Mean
+sidereal Time, just add your longitude in degrees, taking East as
+Positive, so
+
+LMST = 280.46061837 + 360.98564736629 * d + Long
+
+and again, remember to subtract multiples of 360 to bring the
+answer into the range 0 to 360.
+
+As an example, calculate the GMST on 1994 June 16th at 18h UT.
+
+  d = -2024.75000
+GMST = 281.46061837 + -730905.68950490
+    = -730624.22888653
+
+now -730624.22888653 divided by 360 gives -2029.51174690702, so
+we add on 2030 to give a positive fraction of 360, giving at
+last,
+
+GMST = 0.48825309298 * 360 = 175.771113474402
+                           = 175.77111 degs
+
+This corresponds to 11h	39m	5.0672s in time units. ICE gives
+11h 39m 05.0675s for the same time and date.
+
+We can keep about 5 decimal places here, the error compared to
+the full formula is about 0.000001 degrees. Note that you must
+use a calculator, spreadsheet or programming language that can
+keep 14 places of precision with this formula. The Excel
+spreadsheet has a function called =mod(). A formula like the one
+below returns the GST directly, given d in cell B3.
+
+=MOD(280.46061837 + 360.98564736629 * B3, 360)
+
+As I have dropped terms in the square and cube of the time, this
+formula will become less accurate over time. It is easy to make a
+graph showing the error using a spreadsheet. The full formula
+has been compared with ICE and agrees better than 0.00002
+seconds.
+
+In 10 years, the approximation error will be 0.001 seconds. 30
+years from now the error will still be better than 0.01 seconds.
+A century from now, the approximation error will be 0.1 seconds.
+However, 10 centuries from now the error will be 10 seconds....
+
+Longer time reach
+-----------------
+
+If you need to calculate accurate sidereal times for the
+historical past or far and optimistic future, then a term in the
+square of time can be introduced:
+
+GMST = 280.46061837 + 360.98564736629 * d + 0.000388 * t^2
+
+Where
+d = days since J2000.0 as before
+t = julian centuries since J2000.0 = d / 36525
+
+Errors through truncation with this formula amount to 0.008
+seconds 1000 years into the future or past, and 0.0003 seconds
+300 years into the future or past. With this kind of calculation,
+you must be very careful about time. The formulas here use UT,
+not dynamical time, known as TDT. Formulas used to predict the
+positions of planets, the Moon, eclipses and so on use TDT. In
+the current epoch, TDT - UT is about 65 seconds. That difference
+increases to 2 hours for 4000 BC. Values of 'delta T' (as the
+difference is known) for the far past can only be estimates based
+on historical observations (often of solar eclipses).
+
+Apparent sidereal time
+----------------------
+
+We take the mean sidereal time and add a correction in seconds to
+allow for the nutation and shift in the obliquity of the ecliptic
+that occurs as a result of the Moon's gravitational dance around
+the earth.
+
+First, the formulas, then the explanations. As before, take d as
+the days since J2000.0.
+
+t = d / 36525
+GMST = 280.46061837 + 360.98564736629 * d
+
+as before. Now find (Meeus Ch21 approximate formulas)
+
+   Om = 125.04452 - 1934.136261 * t
+    L = 280.4665 + 36000.7698 * t
+   L1 = 218.3165 + 481267.8813 * t
+    e = 23.439 - 0.0000004 * t
+
+All of these quantities must be brought into the range 0 to 360
+using the mod() function or similar.
+
+and then
+
+dp = -17.2*sin(Om) -1.32*sin(2*L) -0.23*sin(2*L1) +0.21*sin(2*Om)
+de =   9.2*cos(Om) +0.57*cos(2*L) + 0.1*cos(2*L1) -0.09 *cos(2*Om)
+ e =  eps + de
+
+The correction to GMST in seconds of time is given by
+
+correction = dp * cos(e) / 15
+
+and so, in degrees
+
+correction = dp * cos(e) / 3600
+
+Now for some explanations. Om is the longitude of the ascending
+node of the Moon's mean orbit ie the longitude when the Moon
+passes through the plane of the ecliptic, L is the mean longitude
+of the Sun, and L1 is the mean longitude of the Moon. eps is the
+mean obliquity of the ecliptic (the tilt of the Earth's rotation
+axis to the plane of the Earth-Sun orbit). This formula is a very
+basic linear approximation that is good for 50 years either side
+of J2000.0
+
+dp is the change in the ecliptic longitude of a star due to the
+nutation, and de is the shift in angle between the ecliptic and
+equator. These angles measure the tugging of the Moon on the
+Earth and the way it modulates the slow drift of the Earth's axis
+due to precession. The formulas given above are good to about 0.5
+arcsecond in dp and 0.1 arcsecond in de. This means roughly
+0.5/15 seconds of time error or about 0.04 seconds of time either
+way at the absolute worst case.
+
+Using our example time of 1994 June 16 at 18h UT, we get
+
+              GMST = 174.7711135
+                   = 11h 39m 5.0672s
+             Omega = 232.26266
+     Sun mean long = 84.77701
+    Moon mean long = 179.40773
+    d phi (arcsec) = 13.57090
+d epsilon (arcsec) = -6.06879
+     true obliqity = 23.4398099
+ correction (secs) = 0.83007791
+ correction (degs) = 0.00346
+      apparent GST = 174.77457
+                   = 11h 39m 5.8973s
+
+ICE gives
+                        Greenwich Sidereal Times  Local Apparent
+Date         Time       Apparent      Mean        Sidereal Time
+Year Mon Da  h  m  s   h  m   s      h  m   s       h  m   s
+1994 Jun 16 18 00 00  11 39 05.8974 11 39 05.0675  11 31 25.8894
+
+Giving us an error of 0.0003s on the mean sidereal time and
+similar on the apparent sidereal time.
+
+We are using of approximate formulas for nutation, and the GAST
+might be in error by up to 0.04 seconds By the way, the days
+since J2000.0 used in the nutation formulas should, strictly
+speaking, be in Dynamical Time, not UT. As Meeus points out, the
+error introduced by using UT for short time spans is very very
+small.
+
+Looking at the date 2050 August 18th at 1800, we get
+
+                     GMST             GAST
+          ICE    15 49 11.5745    15 49 12.4165 
+Approximation    15 49 11.5506    15 49 12.4005
+        Error           0.0239           0.0160
+
+
+To find local sidereal times, mean or apparent, simply add your
+longitude to the GST. Again, take longitude as positive East and
+negative to the West.
+
+GHA Aries
+---------
+
+Navigators refer to the apparent GST for a given instant as the
+Greenwich Hour Angle of Aries (i.e. the First Point of Aries).
+The Nautical Almanac lists GHA Aries to 0.1 of an arcminute. This
+corresponds to 6 arcseconds or 6 / 15 = 0.4 seconds of time. The
+apparent GST here is accurate to about 0.1 second of time for the
+next 40 years or so (0.02s from the use of truncated formulas for
+mean GST and 0.08 seconds or so from the use of approximate
+nutation formulas).
+
+
+
+[ root ]
+
+-----------------------------------------------------------------
+Keith Burnett (kburnett@btinternet.com) - 29 Jan 2002
+-----------------------------------------------------------------

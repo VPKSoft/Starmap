@@ -1,0 +1,15 @@
+﻿;File for user defined objects
+
+;#"ObjectName", Vmag, ra, dec, Distance, DrawType|Param, ColorR, ColorB, ColorG, ShowName, "Note"
+
+;DrawTypes:
+;C  = Circle				| Diameter
+;CF = Filled Circle		| Diameter
+;R  = Rectangle			| Width & Height
+;RF = Filled Rectangle	| Width & Height
+;D  = Dot					| no parameters are accepted
+
+;Example: M31 Galaxy, circle with diameter of 4, white.
+;Diameter can be a decimal value.
+
+#"M31", 3.4, 0.711666666666667, 41.2666666666667, 0, C|4, 255, 255, 255, true, "M31 galaxy"
